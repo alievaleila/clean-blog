@@ -17,4 +17,22 @@ public class HomeController {
     public String home(){
         return "index.html";
     }
+
+
+    @GetMapping("/about")
+    public String about(){
+        return "about.html";
+    }
+
+
+    @GetMapping("/post")
+    public String post(){
+        return "post.html";
+    }
+
+    @GetMapping("/contact")
+    public String contact(){
+        return "contact.html";
+    }
+
 }
