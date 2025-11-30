@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layout}">
 <head>
     <title>Home</title>
@@ -8,13 +8,14 @@
 <body>
 <div layout:fragment="content">
     <!-- Page Header-->
-    <header class="masthead" style="background-image: url('/front/assets/img/post-bg.jpg')">
+    <header class="masthead" th:style="'background-image: url(' + ${header.backgroundImage} + ')'">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="post-heading">
-                        <h1>Man must explore, and this is exploration at its greatest</h1>
-                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                        <h1 th:text="${header.title}">Man must explore, and this is exploration at its greatest</h1>
+                        <h2 th:text="${header.subtitle}" class="subheading">Problems look mighty small from 150 miles
+                            up</h2>
                         <span class="meta">
                                 Posted by
                                 <a href="#!">Start Bootstrap</a>
