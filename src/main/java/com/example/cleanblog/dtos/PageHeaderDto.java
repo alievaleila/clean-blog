@@ -1,6 +1,5 @@
-package com.example.cleanblog.model;
+package com.example.cleanblog.dtos;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,11 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name="headers")
-public class PageHeader {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PageHeaderDto {
     private Long id;
     private String title;
     private String subtitle;
@@ -20,4 +15,3 @@ public class PageHeader {
     private String page;
 
 }
-
