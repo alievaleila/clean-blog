@@ -13,22 +13,20 @@ import java.util.List;
 
 @Controller
 public class HomeController {
-//
-//    private final PageHeaderService pageHeaderService;
-//    private final ArticleService articleService;
-//
-//    public HomeController(PageHeaderService pageHeaderService, ArticleService articleService) {
-//        this.pageHeaderService = pageHeaderService;
-//        this.articleService = articleService;
-//    }
 
+    private final PageHeaderService pageHeaderService;
+    private final ArticleService articleService;
+
+    public HomeController(PageHeaderService pageHeaderService, ArticleService articleService) {
+        this.pageHeaderService = pageHeaderService;
+        this.articleService = articleService;
+    }
+//
 //    @GetMapping("/")
 //    public String index(Model model){
-//        List<ArticleDto> getAllArticles= articleService.getAllArticles();
-//
-//
 //        PageHeader pageHeader=pageHeaderService.getHeader("home");
 //        model.addAttribute("header",pageHeader);
+//        List<ArticleDto> getAllArticles= articleService.getAllArticles();
 //        model.addAttribute("articles",getAllArticles);
 //        return "index.html";
 //    }
@@ -59,7 +57,9 @@ public class HomeController {
 
 
     @GetMapping("/")
-    public  String home(){
+    public  String home(Model model){
+        List<ArticleDto> getAllArticles= articleService.getAllArticles();
+        model.addAttribute("article",getAllArticles);
         return "index.html";
     }
 
