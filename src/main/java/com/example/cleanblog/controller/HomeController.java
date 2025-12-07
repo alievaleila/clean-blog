@@ -21,58 +21,59 @@ public class HomeController {
         this.pageHeaderService = pageHeaderService;
         this.articleService = articleService;
     }
-//
-//    @GetMapping("/")
-//    public String index(Model model){
-//        PageHeader pageHeader=pageHeaderService.getHeader("home");
-//        model.addAttribute("header",pageHeader);
-//        List<ArticleDto> getAllArticles= articleService.getAllArticles();
-//        model.addAttribute("articles",getAllArticles);
-//        return "index.html";
-//    }
-//
-//
-//    @GetMapping("/about")
-//    public String about(Model model){
-//        PageHeader pageHeader=pageHeaderService.getHeader("about");
-//        model.addAttribute("header",pageHeader);
-//        return "about.html";
-//    }
-//
-//
-//    @GetMapping("/post")
-//    public String post(Model model){
-//        PageHeader pageHeader=pageHeaderService.getHeader("post");
-//        model.addAttribute("header",pageHeader);
-//        return "post.html";
-//    }
-//
-//    @GetMapping("/contact")
-//    public String contact(Model model){
-//        PageHeader pageHeader=pageHeaderService.getHeader("contact");
-//        model.addAttribute("header",pageHeader);
-//        return "contact.html";
-//    }
-//
-
 
     @GetMapping("/")
-    public  String home(Model model){
-        List<ArticleDto> getAllArticles= articleService.getAllArticles();
-        model.addAttribute("article",getAllArticles);
+    public String index(Model model) {
+        PageHeader pageHeader = pageHeaderService.getHeader("home");
+        model.addAttribute("header", pageHeader);
+        List<ArticleDto> getAllArticles = articleService.getAllArticles();
+        model.addAttribute("articles", getAllArticles);
         return "index.html";
     }
 
+
     @GetMapping("/about")
-    public  String about(){
+    public String about(Model model) {
+        PageHeader pageHeader = pageHeaderService.getHeader("about");
+        model.addAttribute("header", pageHeader);
         return "about.html";
     }
-    @GetMapping("/contact")
-    public  String contact(){
-        return "contact.html";
-    }
+
+
     @GetMapping("/post")
-    public  String post(){
+    public String post(Model model) {
+        PageHeader pageHeader = pageHeaderService.getHeader("post");
+        model.addAttribute("header", pageHeader);
         return "post.html";
     }
+
+    @GetMapping("/contact")
+    public String contact(Model model) {
+        PageHeader pageHeader = pageHeaderService.getHeader("contact");
+        model.addAttribute("header", pageHeader);
+        return "contact.html";
+    }
 }
+
+//
+//
+//    @GetMapping("/")
+//    public  String home(Model model){
+//        List<ArticleDto> getAllArticles= articleService.getAllArticles();
+//        model.addAttribute("article",getAllArticles);
+//        return "index.html";
+//    }
+//
+//    @GetMapping("/about")
+//    public  String about(){
+//        return "about.html";
+//    }
+//    @GetMapping("/contact")
+//    public  String contact(){
+//        return "contact.html";
+//    }
+//    @GetMapping("/post")
+//    public  String post(){
+//        return "post.html";
+//    }
+//}

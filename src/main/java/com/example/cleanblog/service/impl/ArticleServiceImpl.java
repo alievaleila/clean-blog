@@ -1,5 +1,6 @@
 package com.example.cleanblog.service.impl;
 
+import com.example.cleanblog.dtos.ArticleDetailDto;
 import com.example.cleanblog.dtos.ArticleDto;
 import com.example.cleanblog.repository.ArticleRepository;
 import com.example.cleanblog.service.ArticleService;
@@ -28,5 +29,10 @@ public class ArticleServiceImpl implements ArticleService {
                 stream().map(article -> modelMapper.map(article, ArticleDto.class)).
                 collect(Collectors.toList());
         return articleDtoList;
+    }
+
+    @Override
+    public ArticleDetailDto getById(Long id) {
+        return articleRepository.findById(id).map(article -> modelMapper.map(article,ArticleDetailDto.class)).orElseThrow();
     }
 }
