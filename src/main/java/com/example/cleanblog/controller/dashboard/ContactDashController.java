@@ -38,10 +38,22 @@ public class ContactDashController {
         return "redirect:/admin/contact";
     }
 
-    @GetMapping("/admin/contact/update")
+    @GetMapping("/admin/contact/update/{id}")
     private String update(@PathVariable Long id,Model model) {
-        ContactUpdateDto contactUpdateDto=contactService.updateContact(id);
+        ContactUpdateDto contactUpdateDto=contactService.getUpdatedContact(id);
         model.addAttribute("contact",contactUpdateDto);
         return "/dashboard/contact/update";
     }
+
+    @PostMapping("/admin/contact/update/{id}")
+    private String update(@ModelAttribute ContactUpdateDto contactUpdateDto,@PathVariable Long id){
+        contactService.updateContact(contactUpdateDto,id);
+        return "redirect:/admin/contact";
+    }
+
+    @GetMapping("/admin/contact/delete/{id}")
+    private String delete(@PathVariable Long id, Model model) {
+        return "/dashboard/contact/delete";
+    }
+
 }

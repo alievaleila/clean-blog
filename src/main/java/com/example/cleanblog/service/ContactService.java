@@ -15,5 +15,7 @@ public interface ContactService {
 
     void createContact(ContactCreateDto contactCreateDto);
 
-    ContactUpdateDto updateContact(Long id);
+    ContactUpdateDto getUpdatedContact(Long id);
+
+    void updateContact(ContactUpdateDto contactUpdateDto, Long id);
 }

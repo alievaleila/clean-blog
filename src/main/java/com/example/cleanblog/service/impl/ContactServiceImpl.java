@@ -53,9 +53,21 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public ContactUpdateDto updateContact(Long id) {
+    public ContactUpdateDto getUpdatedContact(Long id) {
         Contact contact=contactRepository.findById(id).orElseThrow();
         ContactUpdateDto contactUpdateDto=modelMapper.map(contact,ContactUpdateDto.class);
         return contactUpdateDto;
+    }
+
+    @Override
+    public void updateContact(ContactUpdateDto contactUpdateDto, Long id) {
+        Contact contact = contactRepository.findById(id).orElseThrow();
+        contact.setName(contactUpdateDto.getName());
+        contact.setEmail(contactUpdateDto.getEmail());
+        contact.setMessage(contactUpdateDto.getMessage());
+        contact.setPhone(contactUpdateDto.getPhone());
+
+        contactRepository.save(contact);
+
     }
 }
